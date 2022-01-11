@@ -130,17 +130,17 @@ const Hero = ({ slides }) => {
   const timeout = useRef(null);
 
   //Animated slider
-  useEffect(() => {
-    const nextSlide = () => {
-      setCurrent((current) => (current === length - 1 ? 0 : current + 1));
-    };
-    timeout.current = setTimeout(nextSlide, 3000);
-    return function () {
-      if (timeout.current) {
-        clearTimeout(timeout.current);
-      }
-    };
-  }, [current, length]);
+  // useEffect(() => {
+  //   const nextSlide = () => {
+  //     setCurrent((current) => (current === length - 1 ? 0 : current + 1));
+  //   };
+  //   timeout.current = setTimeout(nextSlide, 3000);
+  //   return function () {
+  //     if (timeout.current) {
+  //       clearTimeout(timeout.current);
+  //     }
+  //   };
+  // }, [current, length]);
 
   const nextSlide = () => {
     if (timeout.current) {

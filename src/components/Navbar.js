@@ -35,13 +35,14 @@ const MenuBars = styled(FaBars)`
 
   @media screen and (max-width: 768px) {
     display: block;
-    background-size: contain;
-    height: 35px;
-    width: 35px;
+    /* background-size: contain; */
+    height: 30px;
+    width: 30px;
     cursor: pointer;
+    position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-50%, -15%);
+    transform: translate(-70%, 60%);
     color: #fff;
   }
 `;
@@ -70,11 +71,11 @@ const NavBtn = styled.div`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   return (
     <Nav>
       <Logo to="/">AlanBurney</Logo>
-      <MenuBars />
+      <MenuBars onClick={toggle} />
       <NavMenu>
         {menuData.map((item, index) => (
           <NavMenuLinks to={item.link} key={index}>
