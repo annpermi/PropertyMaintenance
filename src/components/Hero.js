@@ -101,7 +101,7 @@ const SliderButtons = styled.div`
 const arrowButtons = css`
   width: 50px;
   height: 50px;
-  color: #fff;
+  color: ${COLORS.white};
   cursor: pointer;
   background: #000d1a;
   border-radius: 50px;
@@ -111,7 +111,7 @@ const arrowButtons = css`
   transition: 0.3s;
 
   &:hover {
-    background: ${COLORS.blue};
+    background: ${COLORS.orange};
     transform: scale(1.05);
   }
 `;
@@ -172,9 +172,9 @@ const Hero = ({ slides }) => {
                     <h1>{slide.title}</h1>
                     <Button
                       to={slide.path}
-                      primary={true}
+                      // primary={true}
                       // css={`
-                      //   /* max-width: 160px; */
+                      //   max-width: 160px;
                       // `}
                     >
                       {slide.label}

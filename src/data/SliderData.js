@@ -7,14 +7,14 @@ export const SliderData = [
     title: "Nantucket",
     path: "/places",
     label: "View Place",
-    image: ImageOne,
+    image: ImageTwo,
     alt: "Place",
   },
   {
     title: "Siasconset",
     path: "/places",
     label: "View Place",
-    image: ImageTwo,
+    image: ImageOne,
     alt: "Place",
   },
   {
