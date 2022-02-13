@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { menuData } from "../data/MenuData";
 import { Button } from "./Button";
 import { FaBars } from "react-icons/fa";
+import { COLORS } from "../style/variables";
+import Bars from "../images/bars.svg";
 
 const Nav = styled.nav`
   height: 60px;
@@ -16,7 +18,7 @@ const Nav = styled.nav`
 `;
 
 const NavLink = css`
-  color: #fff;
+  color: ${COLORS.white};
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -30,12 +32,13 @@ const Logo = styled(Link)`
   font-style: italic;
 `;
 
-const MenuBars = styled(FaBars)`
+const MenuBars = styled.i`
   display: none;
 
   @media screen and (max-width: 768px) {
     display: block;
-    /* background-size: contain; */
+    background-image: url(${Bars});
+    background-size: contain;
     height: 30px;
     width: 30px;
     cursor: pointer;
@@ -43,7 +46,7 @@ const MenuBars = styled(FaBars)`
     top: 0;
     right: 0;
     transform: translate(-70%, 60%);
-    color: #fff;
+    color: ${COLORS.white};
   }
 `;
 
