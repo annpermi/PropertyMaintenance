@@ -172,10 +172,10 @@ const Hero = ({ slides }) => {
                     <h1>{slide.title}</h1>
                     <Button
                       to={slide.path}
-                      // primary={true}
-                      // css={`
-                      //   max-width: 160px;
-                      // `}
+                      primary={true}
+                      css={`
+                        max-width: 160px;
+                      `}
                     >
                       {slide.label}
                       <Arrow />

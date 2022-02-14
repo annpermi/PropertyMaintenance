@@ -69,7 +69,7 @@ const InfoSection = (props) => {
           <h1>{heading}</h1>
           <p>{paragraphOne}</p>
           <p>{paragraphTwo}</p>
-          <Button to="/homes" primary="true">
+          <Button to="/services" primary="true">
             {buttonLabel}
           </Button>
         </ColumnLeft>

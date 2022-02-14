@@ -110,7 +110,7 @@ const Listings = (props) => {
           >
             <Image src={image_one} alt="home" />
             <h2>{subtitleOne}</h2>
-            <InfoLink to="/cervices">
+            <InfoLink to="/gallery">
               <p>{paragraphOne}</p>
               <Arrow />
             </InfoLink>
@@ -132,7 +132,7 @@ const Listings = (props) => {
               `}
             />
             <h2>{subtitleTwo}</h2>
-            <InfoLink to="/cervices">
+            <InfoLink to="/gallery">
               <p>{paragraphTwo}</p>
               <Arrow />
             </InfoLink>
