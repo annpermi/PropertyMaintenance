@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useRef, useContext } from "react";
+import DOMPurify from "dompurify";
 import styled from "styled-components";
-import { Button } from "./Button";
+import { SubmitButton } from "./Button";
+import { addressData } from "../data/AddressData";
+import { MyContext } from "../context";
 
 const Section = styled.div`
-width: 100%,
-height: 100%;
-padding: 4rem 0rem;
+  width: 100%;
+  height: 100%;
+  padding: 4rem 0rem;
 `;
 const Container = styled.div`
   padding: 3rem calc((100vw - 1300px) / 2);
@@ -58,20 +61,50 @@ const ColumnRight = styled.div`
   }
 `;
 
+const ListWrapper = styled.div`
+  align-self: center;
+  margin-bottom: 2rem;
+`;
+
 const InfoSection = (props) => {
-  const { heading, paragraphOne, paragraphTwo, buttonLabel, reverse, image } =
-    props;
+  const {
+    heading,
+    paragraphOne,
+    paragraphTwo,
+    paragraphTwoBullets,
+    buttonLabel,
+    reverse,
+    image,
+    // infoRef,
+  } = props;
+  const { infoRef } = useContext(MyContext);
 
   return (
-    <Section>
+    <Section ref={infoRef}>
       <Container>
         <ColumnLeft>
           <h1>{heading}</h1>
-          <p>{paragraphOne}</p>
-          <p>{paragraphTwo}</p>
-          <Button to="/services" primary="true">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(paragraphOne, {
+                USE_PROFILES: { html: true },
+              }),
+            }}
+          />
+          {paragraphTwo}
+          <ListWrapper>
+            <ul style={{ listStyleType: "circle" }}>
+              {paragraphTwoBullets.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </ListWrapper>
+          <SubmitButton
+            primary="true"
+            onClick={() => window.open(`tel:${addressData.tel}`, "_self")}
+          >
             {buttonLabel}
-          </Button>
+          </SubmitButton>
         </ColumnLeft>
         <ColumnRight reverse={reverse}>
           <img src={image} alt="home" />

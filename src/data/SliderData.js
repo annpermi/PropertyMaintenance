@@ -4,9 +4,10 @@ import ImageThree from "../images/place-3.jpg";
 
 export const SliderData = [
   {
-    title: "Nantucket",
-    path: "/places",
-    label: "View Place",
+    title: "AB Property Maintenance",
+    subTitle: "Nantucket Island",
+    path: "#info",
+    label: "View Services",
     image: ImageTwo,
     alt: "Place",
   },

@@ -1,31 +1,34 @@
 import React from "react";
 import styled from "styled-components";
-import { Button } from "./Button";
+import DOMPurify from "dompurify";
 import { COLORS } from "../style/variables";
 
-const Section = styled.section`
+export const Section = styled.section`
   background: ${COLORS.grey};
-  padding: 12rem 0rem;
+  padding: 12rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media screen and (max-width: 768px) {
+    padding: 12rem 0 0;
+  }
 `;
 
-const Container = styled.div`
+export const Container = styled.div`
   background: ${COLORS.white};
   padding: 3rem 2rem;
   position: relative;
 `;
 
-const Wrap = styled.div`
-  max-width: 1200px;
+export const Wrap = styled.div`
+  max-width: 75rem;
   margin: 0 auto;
 `;
 
-const ColumnLeft = styled.div`
+export const ColumnLeft = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 0px -15px;
+  margin: 0px -0.938rem;
   justify-content: flex-start;
   padding: 1rem;
 `;
@@ -50,18 +53,18 @@ const Content = styled.div`
   }
 `;
 
-const ColumnRight = styled.div`
+export const ColumnRight = styled.div`
   position: absolute;
-  top: -80px;
-  right: 0;
-  max-width: 850px;
+  top: -5rem;
+  right: 2.25rem;
+  max-width: 53.125rem;
   height: 140%;
   width: 45%;
   padding-left: 1rem;
 
   @media screen and (max-width: 768px) {
-    height: 320px;
-    top: -65px;
+    height: 20rem;
+    top: -4.063rem;
     width: 80%;
     margin: 0 auto;
     left: 0;
@@ -89,11 +92,21 @@ const Features = (props) => {
               data-aos-anchor-placement="center bottom"
             >
               <h1>{heading}</h1>
-              <p>{paragraphOne}</p>
-              <p>{paragraphTwo}</p>
-              <Button to="/about" primary={false}>
-                Learn More
-              </Button>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(paragraphOne, {
+                    USE_PROFILES: { html: true },
+                  }),
+                }}
+              />
+              <p
+                style={{ textAlign: "center", fontWeight: 800 }}
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(paragraphTwo, {
+                    USE_PROFILES: { html: true },
+                  }),
+                }}
+              />
             </Content>
           </ColumnLeft>
           <ColumnRight>

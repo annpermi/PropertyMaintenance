@@ -8,7 +8,7 @@ import { FaTimes } from "react-icons/fa";
 
 const DropdownContainer = styled.div`
   position: fixed;
-  z-index: 999;
+  z-index: 1100;
   width: 100%;
   height: 100%;
   background: ${COLORS.orange};
@@ -32,7 +32,7 @@ const Icon = styled.div`
 `;
 
 const CloseIcon = styled(FaTimes)`
-  color: #000d1a;
+  color: ${COLORS.grey};
 `;
 
 const DropdownWrapper = styled.div``;
@@ -40,7 +40,7 @@ const DropdownWrapper = styled.div``;
 const DropdownMenu = styled.div`
     display: grid:
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 80px);
+    grid-template-rows: repeat(4, 5rem);
     text-align: center;
     margin-bottom: 4rem;
 

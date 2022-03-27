@@ -7,7 +7,7 @@ import { COLORS } from "../style/variables";
 const Section = styled.section`
   width: 100%;
   height: 100%;
-  padding: 10rem calc((100vw - 1300px) / 2);
+  padding: 5rem calc((100vw - 1300px) / 2);
 `;
 
 const Container = styled.div`

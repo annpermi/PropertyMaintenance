@@ -1,10 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components/macro";
-import { Link } from "react-router-dom";
-import { Button } from "./Button";
 import { COLORS } from "../style/variables";
-
-import { IoMdArrowRoundForward } from "react-icons/io";
+import { addressData } from "../data/AddressData";
 import {
   FaInstagram,
   FaFacebookF,
@@ -25,52 +22,52 @@ const Container = styled.div`
   width: 100%;
   padding: 2rem;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
-const FooterLeft = styled.div``;
-
-const FooterRight = styled.div``;
-const Policy = styled.p``;
-
 const FooterInfo = styled.div`
-  padding: 2rem;
+  text-align: center;
+  padding: 1.125rem;
   line-height: 3;
-  display: flex;
-  flex-direction: column;
-
-  a {
-    color: #fff;
-    text-decoration: none;
-  }
+  font-size: 1.125rem;
 
   @media screen and (max-width: 768px) {
-    padding: 1rem 0rem;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 2;
   }
 `;
 
-const FooterInfoTittle = styled.h1``;
-const FooterInfoLeft = styled.div``;
-const FooterInfoRight = styled.div``;
+const FooterLogo = styled.h1`
+  font-size: 3.125rem;
+  padding: 1.25rem;
+`;
+
+const FooterIcons = styled.div`
+  padding: 1.25rem;
+  h3 {
+    font-size: 1.438;
+    padding: 0.625;
+  }
+`;
 
 const SocialIcons = styled.div`
   display: flex;
-  width: 50%;
 
   @media screen and (max-width: 768px) {
     margin-bottom: 2rem;
-    width: 100%;
   }
 `;
 
 const Icons = css`
   font-size: clamp(1rem, 6vw, 2rem);
   margin-right: 1.5rem;
-  color: #cd853f;
+  color: ${COLORS.orange};
 `;
 
 const Instagram = styled(FaInstagram)`
@@ -89,81 +86,69 @@ const Youtube = styled(FaYoutube)`
   ${Icons}
 `;
 
-/* Contact us */
-const ContactLeft = styled.div``;
-const ContactRight = styled.div``;
-const Label = styled.label``;
-const Input = styled.input``;
-const Textarea = styled.textarea``;
+const Policy = styled.p`
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    font-size: 0.875rem;
+  }
+`;
 
 const Footer = () => {
   return (
     <Section>
       <Container>
-        <FooterLeft>
-          <FooterInfo>
-            <FooterInfoTittle>Get in touch:</FooterInfoTittle>
-            <FooterInfoLeft>
-              <p>Tel: 508-332-9826</p>
-              <p>Email: 508-332-9826</p>
-            </FooterInfoLeft>
-            <FooterInfoRight>
-              <p>
-                AB Property Maintenance PO 59
-                <br />
-                Nantucket, MA 02554
-              </p>
-            </FooterInfoRight>
-            <SocialIcons>
-              <a
-                href="//www.google.com"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Youtube />
-              </a>
-              <a
-                href="//www.google.com"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Instagram />
-              </a>
-              <a
-                href="//www.google.com"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Facebook />
-              </a>
-              <a
-                href="//www.google.com"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <LinkedIn />
-              </a>
-            </SocialIcons>
-            <Policy>
-              © 2022 AB Property Maintenance. All rights reserved.
-            </Policy>
-          </FooterInfo>
-        </FooterLeft>
-        <FooterRight>
-          <FooterInfoTittle>Contact us:</FooterInfoTittle>
-          <ContactLeft>
-            <Label>Enter your name</Label>
-            <Input placeholder="Name" />
-            <Label>Enter your email</Label>
-            <Input placeholder="Email" />
-          </ContactLeft>
-          <ContactRight>
-            <Label>Enter your name</Label>
-            <Textarea placeholder="Message" />
-          </ContactRight>
-          <Button to="/submit">Send</Button>
-        </FooterRight>
+        <FooterInfo>
+          <p>{addressData.title}</p>
+          <p>{addressData.address}</p>
+          <p
+            style={{ cursor: "pointer" }}
+            onClick={() => window.open(`tel:${addressData.tel}`, "_self")}
+          >
+            Tel: {addressData.tel}
+          </p>
+          <p
+            style={{ cursor: "pointer" }}
+            onClick={() => window.open(`mailto:${addressData.email}`, "_blank")}
+          >
+            Email: {addressData.email}
+          </p>
+        </FooterInfo>
+        <FooterLogo>{addressData.logo}</FooterLogo>
+        <FooterIcons>
+          <h3 style={{ paddingBottom: "0.825rem" }}>Connect with us</h3>
+          <SocialIcons>
+            <a
+              href="//www.google.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Youtube />
+            </a>
+            <a
+              href="//www.google.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Instagram />
+            </a>
+            <a
+              href="//www.google.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Facebook />
+            </a>
+            <a
+              href="//www.google.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <LinkedIn />
+            </a>
+          </SocialIcons>
+        </FooterIcons>
       </Container>
+      <Policy>© 2022 AB Property Maintenance. All rights reserved.</Policy>
     </Section>
   );
 };

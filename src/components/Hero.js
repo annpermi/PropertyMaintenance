@@ -1,9 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import styled, { css } from "styled-components/macro";
-import { Button } from "./Button";
+import { SubmitButton } from "./Button";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import { IoArrowForward, IoArrowBack } from "react-icons/io5";
 import { COLORS } from "../style/variables";
+import { scrollDown } from "../pages/Home";
+import { MyContext } from "../context";
 
 const HeroSection = styled.section`
   height: 100vh;
@@ -23,7 +25,7 @@ const HeroWrapper = styled.div`
 `;
 
 const HeroSlide = styled.div`
-  z-index: 1;
+  /* z-index: 1; */
   width: 100%;
   height: 100%;
 `;
@@ -41,7 +43,7 @@ const HeroSlider = styled.div`
   &::before {
     content: "";
     position: absolute;
-    z-index: 2;
+    /* z-index: 2; */
     width: 100%;
     height: 100vh;
     bottom: 0vh;
@@ -66,22 +68,25 @@ const HeroImage = styled.img`
 `;
 const HeroContent = styled.div`
   position: relative;
-  z-index: 10;
+  /* z-index: 10; */
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   max-width: 1600px;
-  width: calc(100% -100px);
-  color: #fff;
+  width: calc(100% - 100px);
+  color: ${COLORS.white};
+  text-align: center;
 
   h1 {
-    font-size: clamp(1rem, 8vw, 2rem); //responsive text
+    font-size: clamp(1rem, 8vw, 3rem); //responsive text
     font-weight: 400;
     text-transform: uppercase;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
-    text-align: left;
     margin-bottom: 0.8rem;
   }
   p {
+    font-size: clamp(0.825rem, 8vw, 2rem);
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
     margin-bottom: 1.2rem;
   }
@@ -95,7 +100,7 @@ const SliderButtons = styled.div`
   bottom: 50px;
   right: 50px;
   display: flex;
-  z-index: 10;
+  /* z-index: 10; */
 `;
 
 const arrowButtons = css`
@@ -128,6 +133,7 @@ const Hero = ({ slides }) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
   const timeout = useRef(null);
+  const { infoRef } = useContext(MyContext);
 
   //Animated slider
   // useEffect(() => {
@@ -142,21 +148,21 @@ const Hero = ({ slides }) => {
   //   };
   // }, [current, length]);
 
-  const nextSlide = () => {
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
+  // const nextSlide = () => {
+  //   if (timeout.current) {
+  //     clearTimeout(timeout.current);
+  //   }
 
-    setCurrent(current === length - 1 ? 0 : current + 1);
-  };
+  //   setCurrent(current === length - 1 ? 0 : current + 1);
+  // };
 
-  const prevSlide = () => {
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
+  // const prevSlide = () => {
+  //   if (timeout.current) {
+  //     clearTimeout(timeout.current);
+  //   }
 
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
+  //   setCurrent(current === 0 ? length - 1 : current - 1);
+  // };
 
   if (!Array.isArray(slides) || slides.length <= 0) return null;
   return (
@@ -169,27 +175,29 @@ const Hero = ({ slides }) => {
                 <HeroSlider>
                   <HeroImage src={slide.image} alt={slide.alt} />
                   <HeroContent>
-                    <h1>{slide.title}</h1>
-                    <Button
+                    <h1 style={{ fontWeight: 800 }}>{slide.title}</h1>
+                    <h1>{slide.subTitle}</h1>
+                    <SubmitButton
                       to={slide.path}
-                      primary={true}
+                      primary="true"
                       css={`
                         max-width: 160px;
                       `}
+                      onClick={() => scrollDown(infoRef)}
                     >
                       {slide.label}
                       <Arrow />
-                    </Button>
+                    </SubmitButton>
                   </HeroContent>
                 </HeroSlider>
               )}
             </HeroSlide>
           );
         })}
-        <SliderButtons>
+        {/* <SliderButtons>
           <PrevArrow onClick={prevSlide} />
           <NextArrow onClick={nextSlide} />
-        </SliderButtons>
+        </SliderButtons> */}
       </HeroWrapper>
     </HeroSection>
   );

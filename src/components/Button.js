@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import { COLORS } from "../style/variables";
-
-export const Button = styled(Link)`
+const buttonShearedStyle = css`
   background: ${({ primary }) => (primary ? COLORS.grey : COLORS.orange)};
   white-space: nowrap;
   outline: none;
@@ -23,4 +22,12 @@ export const Button = styled(Link)`
   &:hover {
     transform: translateY(-2px);
   }
+`;
+
+export const Button = styled(Link)`
+  ${buttonShearedStyle}
+`;
+
+export const SubmitButton = styled.button`
+  ${buttonShearedStyle}
 `;

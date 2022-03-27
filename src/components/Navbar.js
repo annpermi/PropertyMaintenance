@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components/macro";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { menuData } from "../data/MenuData";
 import { Button } from "./Button";
-import { FaBars } from "react-icons/fa";
 import { COLORS } from "../style/variables";
 import Bars from "../images/bars.svg";
 
@@ -12,7 +11,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  z-index: 100;
+  z-index: 1050;
   position: fixed;
   width: 100%;
 `;
@@ -75,8 +74,36 @@ const NavBtn = styled.div`
 `;
 
 const Navbar = ({ toggle }) => {
+  const [navbar, setNavbar] = useState(false);
+  const location = useLocation();
+
+  const changeBackground = () => {
+    if (window.pageYOffset >= 60) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    const watchScroll = () => {
+      window.addEventListener("scroll", changeBackground);
+    };
+
+    watchScroll();
+
+    return () => {
+      window.removeEventListener("scroll", changeBackground);
+    };
+  }, []);
+
+  let style = {
+    backgroundColor:
+      navbar || location.pathname !== "/" ? `${COLORS.orange}` : "transparent",
+    transition: "0.4s",
+  };
   return (
-    <Nav>
+    <Nav style={style}>
       <Logo to="/">AlanBurney</Logo>
       <MenuBars onClick={toggle} />
       <NavMenu>
