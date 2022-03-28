@@ -75,14 +75,21 @@ const InfoSection = (props) => {
     buttonLabel,
     reverse,
     image,
-    // infoRef,
+    delay,
   } = props;
   const { infoRef } = useContext(MyContext);
 
   return (
     <Section ref={infoRef}>
       <Container>
-        <ColumnLeft>
+        <ColumnLeft
+          reverse={reverse}
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-once="true"
+          data-aos-delay={delay}
+          data-aos-anchor-placement="center bottom"
+        >
           <h1>{heading}</h1>
           <div
             dangerouslySetInnerHTML={{
@@ -107,7 +114,15 @@ const InfoSection = (props) => {
           </SubmitButton>
         </ColumnLeft>
         <ColumnRight reverse={reverse}>
-          <img src={image} alt="home" />
+          <img
+            src={image}
+            alt="home"
+            data-aos="zoom-out"
+            data-aos-duration="1000"
+            data-aos-once="true"
+            data-aos-delay={delay}
+            data-aos-anchor-placement="center bottom"
+          />
         </ColumnRight>
       </Container>
     </Section>

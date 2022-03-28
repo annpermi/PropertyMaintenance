@@ -78,6 +78,7 @@ const Navbar = ({ toggle }) => {
   const location = useLocation();
 
   const changeBackground = () => {
+    // 60 height of the navbar
     if (window.pageYOffset >= 60) {
       setNavbar(true);
     } else {
@@ -102,6 +103,7 @@ const Navbar = ({ toggle }) => {
       navbar || location.pathname !== "/" ? `${COLORS.orange}` : "transparent",
     transition: "0.4s",
   };
+
   return (
     <Nav style={style}>
       <Logo to="/">AlanBurney</Logo>

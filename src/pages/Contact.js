@@ -5,16 +5,17 @@ import { COLORS } from "../style/variables";
 import emailjs from "@emailjs/browser";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { addressData } from "../data/AddressData";
-// import { init } from "@emailjs/browser";
-// init("5RYH85kmNksEyKmO2");
 import { Section, Container, Wrap } from "../components/Features";
+import { init } from "@emailjs/browser";
+
+/* emailjs */
+init(process.env.REACT_APP_MY_USER_ID);
 
 /* Form*/
 const Content = styled.div`
   flex: 0 0 50%;
 
   @media screen and (max-width: 960px) {
-    flex: 0 0 100%;
     max-width: 100%;
     margin-top: 15.625rem;
   }
@@ -31,6 +32,11 @@ const ListItem = styled.li`
   overflow: hidden;
   max-width: 26rem;
   width: 100%;
+
+  @media screen and (max-width: 960px) {
+    max-width: 40rem;
+    min-width: 19rem;
+  }
 `;
 
 const sharedInputStyle = css`
@@ -42,7 +48,6 @@ const sharedInputStyle = css`
   color: ${COLORS.orange};
   -webkit-text-fill-color: ${COLORS.orange};
   padding: 0 1.25rem;
-  background-color: ${COLORS.lightGrey};
   &:focus {
     outline: none;
     border: 0.125rem solid ${COLORS.orange};
@@ -70,6 +75,7 @@ const ColumnLeft = styled.div`
   @media screen and (max-width: 960px) {
     margin: 0;
     justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -103,18 +109,17 @@ const MapWrapper = styled.div`
   height: 100%;
 `;
 
-const Contact = () => {
+const Contact = ({ reverse }) => {
   const form = useRef();
 
   const sendEmail = (event) => {
-    debugger;
     event.preventDefault();
     emailjs
       .sendForm(
-        "service_gqbfq1i",
-        "template_sjrt7ui",
+        process.env.REACT_APP_MY_SERVICE_ID,
+        process.env.REACT_APP_MY_TEMPLATE_ID,
         form.current,
-        "5RYH85kmNksEyKmO2"
+        process.env.REACT_APP_MY_USER_ID
       )
       .then(
         (result) => {
@@ -132,7 +137,14 @@ const Contact = () => {
     <Section>
       <Container>
         <Wrap>
-          <ColumnLeft>
+          <ColumnLeft
+            reverse="false"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-once="true"
+            data-aos-delay="100"
+            data-aos-anchor-placement="center bottom"
+          >
             <Content>
               <h1>Contact us</h1>
               <form ref={form} onSubmit={sendEmail}>
@@ -181,8 +193,15 @@ const Contact = () => {
               </form>
             </Content>
           </ColumnLeft>
-          <ColumnRight>
-            <MapWrapper>
+          <ColumnRight reverse={reverse}>
+            <MapWrapper
+              alt="home"
+              data-aos="zoom-out"
+              data-aos-duration="1000"
+              data-aos-once="true"
+              data-aos-delay="true"
+              data-aos-anchor-placement="center bottom"
+            >
               <MapContainer
                 center={addressData.loc}
                 zoom={16}

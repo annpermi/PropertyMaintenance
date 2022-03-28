@@ -46,6 +46,7 @@ const FooterInfo = styled.div`
 const FooterLogo = styled.h1`
   font-size: 3.125rem;
   padding: 1.25rem;
+  text-align: center;
 `;
 
 const FooterIcons = styled.div`

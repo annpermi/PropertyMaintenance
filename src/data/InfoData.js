@@ -1,6 +1,8 @@
 import ImageOne from "../images/info-data-1.jpg";
-import ImageThree from "../images/info-data-3.jpeg";
-import ImageFour from "../images/info-data-4.jpeg";
+import ImageTwo from "../images/info-data-8.png";
+import ImageThree from "../images/info-data-9.jpeg";
+import ImageFour from "../images/info-data-10.jpeg";
+import ImageFive from "../images/info-data-7.png";
 import ImageSix from "../images/info-data-6.jpeg";
 
 export const InfoData = {
@@ -26,9 +28,15 @@ export const InfoDataTwo = {
   paragraphOne: "View Details",
   subtitleTwo: "Painting",
   paragraphTwo: "View Details",
+  subtitleThree: "Pool Service",
+  paragraphThree: "View Details",
+  subtitleFour: "Landscaping & Gardening",
+  paragraphFour: "View Details",
   buttonLabel: "View Homes",
   image_one: ImageThree,
   image_two: ImageFour,
+  image_three: ImageFive,
+  image_four: ImageTwo,
   reverse: true,
   delay: 300,
 };

@@ -6,6 +6,7 @@ import { IoArrowForward, IoArrowBack } from "react-icons/io5";
 import { COLORS } from "../style/variables";
 import { scrollDown } from "../pages/Home";
 import { MyContext } from "../context";
+import { motion, AnimatePresence } from "framer-motion";
 
 const HeroSection = styled.section`
   height: 100vh;
@@ -58,7 +59,7 @@ const HeroSlider = styled.div`
     );
   }
 `;
-const HeroImage = styled.img`
+const HeroImage = styled(motion.img)`
   position: absolute;
   top: 0;
   left: 0;
@@ -94,7 +95,6 @@ const HeroContent = styled.div`
 const Arrow = styled(IoMdArrowRoundForward)`
   margin-left: 0.5rem;
 `;
-
 const SliderButtons = styled.div`
   position: absolute;
   bottom: 50px;
@@ -102,7 +102,6 @@ const SliderButtons = styled.div`
   display: flex;
   /* z-index: 10; */
 `;
-
 const arrowButtons = css`
   width: 50px;
   height: 50px;
@@ -120,11 +119,9 @@ const arrowButtons = css`
     transform: scale(1.05);
   }
 `;
-
 const PrevArrow = styled(IoArrowBack)`
   ${arrowButtons}
 `;
-
 const NextArrow = styled(IoArrowForward)`
   ${arrowButtons}
 `;
@@ -164,36 +161,67 @@ const Hero = ({ slides }) => {
   //   setCurrent(current === 0 ? length - 1 : current - 1);
   // };
 
-  if (!Array.isArray(slides) || slides.length <= 0) return null;
+  // if (!Array.isArray(slides) || slides.length <= 0) return null;
+
+  const fadeAnimation = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8 } },
+    exit: { opacity: 0 },
+  };
+
   return (
     <HeroSection>
       <HeroWrapper>
-        {slides.map((slide, index) => {
-          return (
-            <HeroSlide key={index}>
-              {index === current && (
-                <HeroSlider>
-                  <HeroImage src={slide.image} alt={slide.alt} />
-                  <HeroContent>
-                    <h1 style={{ fontWeight: 800 }}>{slide.title}</h1>
-                    <h1>{slide.subTitle}</h1>
-                    <SubmitButton
-                      to={slide.path}
-                      primary="true"
-                      css={`
-                        max-width: 160px;
-                      `}
-                      onClick={() => scrollDown(infoRef)}
-                    >
-                      {slide.label}
-                      <Arrow />
-                    </SubmitButton>
-                  </HeroContent>
-                </HeroSlider>
-              )}
-            </HeroSlide>
-          );
-        })}
+        <AnimatePresence>
+          {slides.map((slide, index) => {
+            return (
+              <HeroSlide key={index}>
+                {index === current && (
+                  <HeroSlider>
+                    <HeroImage
+                      src={slide.image}
+                      alt={slide.alt}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={fadeAnimation}
+                    />
+                    <HeroContent>
+                      <h1
+                        style={{ fontWeight: 800 }}
+                        data-aos="fade-down"
+                        data-aos-duration="600"
+                      >
+                        {slide.title}
+                      </h1>
+                      <h1
+                        data-aos="fade-down"
+                        data-aos-duration="600"
+                        data-aos-delay="200"
+                      >
+                        {slide.subTitle}
+                      </h1>
+                      <SubmitButton
+                        data-aos="zoom-out"
+                        data-aos-duration="500"
+                        data-aos-delay="250"
+                        to={slide.path}
+                        primary="true"
+                        css={`
+                          max-width: 160px;
+                        `}
+                        onClick={() => scrollDown(infoRef)}
+                      >
+                        {slide.label}
+                        <Arrow />
+                      </SubmitButton>
+                    </HeroContent>
+                  </HeroSlider>
+                )}
+              </HeroSlide>
+            );
+          })}
+        </AnimatePresence>
         {/* <SliderButtons>
           <PrevArrow onClick={prevSlide} />
           <NextArrow onClick={nextSlide} />

@@ -7,7 +7,7 @@ import { COLORS } from "../style/variables";
 const Section = styled.section`
   width: 100%;
   height: 100%;
-  padding: 5rem calc((100vw - 1300px) / 2);
+  padding: 3rem calc((100vw - 1300px) / 2);
 `;
 
 const Container = styled.div`
@@ -23,6 +23,7 @@ const Heading = styled.div`
 
   @media screen and (max-width: 768px) {
     text-align: start;
+    margin-bottom: 0;
   }
 `;
 
@@ -42,13 +43,14 @@ const InfoWrap = styled.div`
   height: 100%;
 
   h2 {
-    /* margin-bottom: 1rem; */
+    margin-bottom: 1rem;
     font-weight: 400;
   }
 
-  /* @media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     margin-bottom: 1rem;
-  } */
+    min-height: 338px;
+  }
 `;
 
 const Image = styled.img`
@@ -84,8 +86,14 @@ const Listings = (props) => {
     paragraphOne,
     subtitleTwo,
     paragraphTwo,
+    subtitleThree,
+    paragraphThree,
+    subtitleFour,
+    paragraphFour,
     image_one,
     image_two,
+    image_three,
+    image_four,
   } = props;
 
   return (
@@ -95,7 +103,7 @@ const Listings = (props) => {
           <h1
             data-aos="fade-right"
             data-aos-duration="1000"
-            data-aos-once="true"
+            data-aos-once="false"
             data-aos-anchor-placement="center bottom"
           >
             {heading}
@@ -105,7 +113,7 @@ const Listings = (props) => {
           <InfoWrap
             data-aos="zoom-out-up"
             data-aos-duration="1200"
-            data-aos-once="true"
+            data-aos-once="false"
             data-aos-anchor-placement="center bottom"
           >
             <Image src={image_one} alt="home" />
@@ -134,6 +142,43 @@ const Listings = (props) => {
             <h2>{subtitleTwo}</h2>
             <InfoLink to="/gallery">
               <p>{paragraphTwo}</p>
+              <Arrow />
+            </InfoLink>
+          </InfoWrap>
+        </InfoRow>
+        <InfoRow>
+          <InfoWrap
+            data-aos="zoom-out-up"
+            data-aos-duration="1200"
+            data-aos-once="false"
+            data-aos-anchor-placement="center bottom"
+          >
+            <Image src={image_three} alt="home" />
+            <h2>{subtitleThree}</h2>
+            <InfoLink to="/gallery">
+              <p>{paragraphThree}</p>
+              <Arrow />
+            </InfoLink>
+          </InfoWrap>
+          <InfoWrap
+            data-aos="zoom-out-down"
+            data-aos-duration="1200"
+            data-aos-once="true"
+            data-aos-anchor-placement="center bottom"
+          >
+            <Image
+              src={image_four}
+              alt="home"
+              css={`
+                margin-top: 100px;
+                @media screen and (max-width: 768px) {
+                  margin-top: 0px;
+                }
+              `}
+            />
+            <h2>{subtitleFour}</h2>
+            <InfoLink to="/gallery">
+              <p>{paragraphFour}</p>
               <Arrow />
             </InfoLink>
           </InfoWrap>

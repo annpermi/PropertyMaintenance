@@ -58,7 +58,7 @@ export const ColumnRight = styled.div`
   top: -5rem;
   right: 2.25rem;
   max-width: 53.125rem;
-  height: 140%;
+  height: 120%;
   width: 45%;
   padding-left: 1rem;
 
