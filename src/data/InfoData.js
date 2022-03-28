@@ -1,7 +1,7 @@
 import ImageOne from "../images/info-data-1.jpg";
-import ImageTwo from "../images/info-data-8.png";
+import ImageTwo from "../images/info-data-10.jpeg";
 import ImageThree from "../images/info-data-9.jpeg";
-import ImageFour from "../images/info-data-10.jpeg";
+import ImageFour from "../images/info-data-8.jpeg";
 import ImageFive from "../images/info-data-7.png";
 import ImageSix from "../images/info-data-6.jpeg";
 

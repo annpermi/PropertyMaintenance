@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
-import styled, { css } from "styled-components/macro";
+import React, { useState, useContext } from "react";
+import styled from "styled-components/macro";
 import { SubmitButton } from "./Button";
 import { IoMdArrowRoundForward } from "react-icons/io";
-import { IoArrowForward, IoArrowBack } from "react-icons/io5";
+// import { IoArrowForward, IoArrowBack } from "react-icons/io5";
 import { COLORS } from "../style/variables";
 import { scrollDown } from "../pages/Home";
 import { MyContext } from "../context";
@@ -95,41 +95,41 @@ const HeroContent = styled.div`
 const Arrow = styled(IoMdArrowRoundForward)`
   margin-left: 0.5rem;
 `;
-const SliderButtons = styled.div`
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
-  display: flex;
-  /* z-index: 10; */
-`;
-const arrowButtons = css`
-  width: 50px;
-  height: 50px;
-  color: ${COLORS.white};
-  cursor: pointer;
-  background: #000d1a;
-  border-radius: 50px;
-  padding: 10px;
-  margin-right: 1rem;
-  user-select: none;
-  transition: 0.3s;
+// const SliderButtons = styled.div`
+//   position: absolute;
+//   bottom: 50px;
+//   right: 50px;
+//   display: flex;
+//   /* z-index: 10; */
+// `;
+// const arrowButtons = css`
+//   width: 50px;
+//   height: 50px;
+//   color: ${COLORS.white};
+//   cursor: pointer;
+//   background: #000d1a;
+//   border-radius: 50px;
+//   padding: 10px;
+//   margin-right: 1rem;
+//   user-select: none;
+//   transition: 0.3s;
 
-  &:hover {
-    background: ${COLORS.orange};
-    transform: scale(1.05);
-  }
-`;
-const PrevArrow = styled(IoArrowBack)`
-  ${arrowButtons}
-`;
-const NextArrow = styled(IoArrowForward)`
-  ${arrowButtons}
-`;
+//   &:hover {
+//     background: ${COLORS.orange};
+//     transform: scale(1.05);
+//   }
+// `;
+// const PrevArrow = styled(IoArrowBack)`
+//   ${arrowButtons}
+// `;
+// const NextArrow = styled(IoArrowForward)`
+//   ${arrowButtons}
+// `;
 
 const Hero = ({ slides }) => {
   const [current, setCurrent] = useState(0);
-  const length = slides.length;
-  const timeout = useRef(null);
+  // const length = slides.length;
+  // const timeout = useRef(null);
   const { infoRef } = useContext(MyContext);
 
   //Animated slider

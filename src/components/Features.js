@@ -5,12 +5,12 @@ import { COLORS } from "../style/variables";
 
 export const Section = styled.section`
   background: ${COLORS.grey};
-  padding: 12rem 0;
+  padding: 12rem calc((100vw - 1300px) / 2) 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   @media screen and (max-width: 768px) {
-    padding: 12rem 0 0;
+    padding: 3rem calc((100vw - 1300px) / 2);
   }
 `;
 
