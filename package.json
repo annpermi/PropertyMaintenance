@@ -12,6 +12,7 @@
     "babel-plugin-macros": "^3.1.0",
     "cors": "^2.8.5",
     "dompurify": "^2.3.6",
+    "env-cmd": "^10.1.0",
     "express": "^4.17.3",
     "framer-motion": "^6.2.8",
     "leaflet": "^1.7.1",
@@ -27,7 +28,7 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "env-cmd -f .env.production react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
