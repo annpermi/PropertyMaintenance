@@ -8,7 +8,10 @@ import { MyContext } from "../context";
 const Section = styled.div`
   width: 100%;
   height: 100%;
-  padding: 4rem 0rem;
+  padding: 5rem 0 3rem;
+  @media screen and (max-width: 768px) {
+    padding: 4rem 0 0;
+  }
 `;
 const Container = styled.div`
   padding: 3rem calc((100vw - 1300px) / 2);
@@ -37,6 +40,10 @@ const ColumnLeft = styled.div`
   p {
     margin-bottom: 2rem;
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 6rem 2rem 0;
+  }
 `;
 const ColumnRight = styled.div`
   padding: 1rem 2rem;
@@ -47,6 +54,7 @@ const ColumnRight = styled.div`
   align-items: center;
   @media screen and (max-width: 768px) {
     order: ${(reverse) => (reverse ? "2" : "1")};
+    padding: 6rem 2rem 0;
   }
 
   img {
