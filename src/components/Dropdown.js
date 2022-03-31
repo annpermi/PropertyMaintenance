@@ -11,7 +11,7 @@ const DropdownContainer = styled.div`
   z-index: 1100;
   width: 100%;
   height: 100%;
-  background: ${COLORS.orange};
+  background: ${COLORS.navy};
   display: grid;
   align-items: center;
   top: 0;

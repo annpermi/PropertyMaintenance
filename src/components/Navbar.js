@@ -24,11 +24,20 @@ const NavLink = css`
   height: 100%;
   cursor: pointer;
   text-decoration: none;
+  &:hover {
+    color: ${COLORS.navy};
+    border-bottom: 1px solid ${COLORS.white};
+  }
 `;
 
 const Logo = styled(Link)`
   ${NavLink}
   font-style: italic;
+  font-size: 1.25rem;
+  &:hover {
+    color: ${COLORS.white};
+    border-bottom: none;
+  }
 `;
 
 const MenuBars = styled.i`
@@ -100,7 +109,7 @@ const Navbar = ({ toggle }) => {
 
   let style = {
     backgroundColor:
-      navbar || location.pathname !== "/" ? `${COLORS.orange}` : "transparent",
+      navbar || location.pathname !== "/" ? `${COLORS.navy}` : "transparent",
     transition: "0.4s",
   };
 

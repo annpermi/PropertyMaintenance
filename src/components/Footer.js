@@ -68,7 +68,7 @@ const SocialIcons = styled.div`
 const Icons = css`
   font-size: clamp(1rem, 6vw, 2rem);
   margin-right: 1.5rem;
-  color: ${COLORS.orange};
+  color: ${COLORS.navy};
 `;
 
 const Instagram = styled(FaInstagram)`
@@ -118,7 +118,7 @@ const Footer = () => {
         <FooterIcons>
           <h3 style={{ paddingBottom: "0.825rem" }}>Connect with us</h3>
           <SocialIcons>
-            <a
+            {/* <a
               href="//www.google.com"
               rel="noopener noreferrer"
               target="_blank"
@@ -131,7 +131,7 @@ const Footer = () => {
               target="_blank"
             >
               <Instagram />
-            </a>
+            </a> */}
             <a
               href="//www.google.com"
               rel="noopener noreferrer"
@@ -139,13 +139,13 @@ const Footer = () => {
             >
               <Facebook />
             </a>
-            <a
+            {/* <a
               href="//www.google.com"
               rel="noopener noreferrer"
               target="_blank"
             >
               <LinkedIn />
-            </a>
+            </a> */}
           </SocialIcons>
         </FooterIcons>
       </Container>

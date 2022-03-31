@@ -115,7 +115,7 @@ const Arrow = styled(IoMdArrowRoundForward)`
 //   transition: 0.3s;
 
 //   &:hover {
-//     background: ${COLORS.orange};
+//     background: ${COLORS.navy};
 //     transform: scale(1.05);
 //   }
 // `;

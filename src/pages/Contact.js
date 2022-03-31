@@ -45,12 +45,12 @@ const sharedInputStyle = css`
   border: 0.125rem solid ${COLORS.black};
   border-radius: 0.563rem;
   height: 3.125rem;
-  color: ${COLORS.orange};
-  -webkit-text-fill-color: ${COLORS.orange};
+  color: ${COLORS.navy};
+  -webkit-text-fill-color: ${COLORS.navy};
   padding: 0 1.25rem;
   &:focus {
     outline: none;
-    border: 0.125rem solid ${COLORS.orange};
+    border: 0.125rem solid ${COLORS.navy};
     color: ${COLORS.black};
     -webkit-text-fill-color: ${COLORS.black};
   }
