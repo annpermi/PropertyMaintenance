@@ -25,7 +25,6 @@ const NavLink = css`
   cursor: pointer;
   text-decoration: none;
   &:hover {
-    color: ${COLORS.navy};
     border-bottom: 1px solid ${COLORS.white};
   }
 `;
@@ -35,7 +34,6 @@ const Logo = styled(Link)`
   font-style: italic;
   font-size: 1.25rem;
   &:hover {
-    color: ${COLORS.white};
     border-bottom: none;
   }
 `;
