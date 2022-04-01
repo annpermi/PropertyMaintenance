@@ -1,9 +1,9 @@
 import React from "react";
 import Listings from "../components/Listings";
-import { InfoData, InfoDataTwo, InfoDataThree } from "../data/InfoData";
+import { data } from "../data/data";
 
 const Gallery = () => {
-  return <Listings {...InfoDataTwo} />;
+  return <Listings {...data.infoDataTwo} />;
 };
 
 export default Gallery;

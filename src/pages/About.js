@@ -1,9 +1,9 @@
 import React from "react";
 import Features from "../components/Features";
-import { InfoData, InfoDataTwo, InfoDataThree } from "../data/InfoData";
+import { data } from "../data/data";
 
 const About = () => {
-  return <Features {...InfoDataThree} />;
+  return <Features {...data.infoDataThree} />;
 };
 
 export default About;

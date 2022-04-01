@@ -2,8 +2,7 @@ import React from "react";
 import Features from "../components/Features";
 import Hero from "../components/Hero";
 import Listings from "../components/Listings";
-import { InfoData, InfoDataTwo, InfoDataThree } from "../data/InfoData";
-import { SliderData } from "../data/SliderData";
+import { data } from "../data/data";
 import InfoSection from "../components/InfoSection";
 
 export const scrollDown = (ref) => {
@@ -19,10 +18,10 @@ export const scrollDown = (ref) => {
 const Home = () => {
   return (
     <>
-      <Hero slides={SliderData} />
-      <InfoSection {...InfoData} />
-      <Listings {...InfoDataTwo} />
-      <Features {...InfoDataThree} />
+      <Hero {...data.hero} />
+      <InfoSection {...data.infoData} />
+      <Listings {...data.infoDataTwo} />
+      <Features {...data.infoDataThree} />
     </>
   );
 };

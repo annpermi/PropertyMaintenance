@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components/macro";
 import { Link, useLocation } from "react-router-dom";
-import { menuData } from "../data/MenuData";
+import { data } from "../data/data";
 import { Button } from "./Button";
 import { COLORS } from "../style/variables";
 import Bars from "../images/bars.svg";
@@ -116,7 +116,7 @@ const Navbar = ({ toggle }) => {
       <Logo to="/">AlanBurney</Logo>
       <MenuBars onClick={toggle} />
       <NavMenu>
-        {menuData.map((item, index) => (
+        {data.menuData.map((item, index) => (
           <NavMenuLinks to={item.link} key={index}>
             {item.title}
           </NavMenuLinks>

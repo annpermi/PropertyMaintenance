@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components/macro";
 import { COLORS } from "../style/variables";
-import { addressData } from "../data/AddressData";
+import { data } from "../data/data";
 import {
   FaInstagram,
   FaFacebookF,
@@ -71,21 +71,21 @@ const Icons = css`
   color: ${COLORS.navy};
 `;
 
-const Instagram = styled(FaInstagram)`
-  ${Icons}
-`;
+// const Instagram = styled(FaInstagram)`
+//   ${Icons}
+// `;
 
 const Facebook = styled(FaFacebookF)`
   ${Icons}
 `;
 
-const LinkedIn = styled(FaLinkedinIn)`
-  ${Icons}
-`;
+// const LinkedIn = styled(FaLinkedinIn)`
+//   ${Icons}
+// `;
 
-const Youtube = styled(FaYoutube)`
-  ${Icons}
-`;
+// const Youtube = styled(FaYoutube)`
+//   ${Icons}
+// `;
 
 const Policy = styled.p`
   text-align: center;
@@ -94,30 +94,44 @@ const Policy = styled.p`
   }
 `;
 
+const Span = styled.span`
+  cursor: pointer;
+  &:hover {
+    color: ${COLORS.navy};
+  }
+`;
+
 const Footer = () => {
   return (
     <Section>
       <Container>
         <FooterInfo>
-          <p>{addressData.title}</p>
-          <p>{addressData.address}</p>
+          <p>{data.addressData.poBox}</p>
+          <p>{data.addressData.address}</p>
           <p
-            style={{ cursor: "pointer" }}
-            onClick={() => window.open(`tel:${addressData.tel}`, "_self")}
+            onClick={() => window.open(`tel:${data.addressData.tel}`, "_self")}
           >
-            Tel: {addressData.tel}
+            Tel: <Span>{data.addressData.tel}</Span>
           </p>
           <p
-            style={{ cursor: "pointer" }}
-            onClick={() => window.open(`mailto:${addressData.email}`, "_blank")}
+            onClick={() =>
+              window.open(`mailto:${data.addressData.email}`, "_blank")
+            }
           >
-            Email: {addressData.email}
+            Email: <Span>{data.addressData.email}</Span>
           </p>
         </FooterInfo>
-        <FooterLogo>{addressData.logo}</FooterLogo>
+        <FooterLogo>{data.addressData.title}</FooterLogo>
         <FooterIcons>
           <h3 style={{ paddingBottom: "0.825rem" }}>Connect with us</h3>
           <SocialIcons>
+            <a
+              href="//www.google.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Facebook />
+            </a>
             {/* <a
               href="//www.google.com"
               rel="noopener noreferrer"
@@ -131,15 +145,8 @@ const Footer = () => {
               target="_blank"
             >
               <Instagram />
-            </a> */}
-            <a
-              href="//www.google.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Facebook />
             </a>
-            {/* <a
+            <a
               href="//www.google.com"
               rel="noopener noreferrer"
               target="_blank"

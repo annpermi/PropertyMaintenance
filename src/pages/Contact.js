@@ -4,7 +4,7 @@ import { SubmitButton } from "../components/Button";
 import { COLORS } from "../style/variables";
 import emailjs from "@emailjs/browser";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { addressData } from "../data/AddressData";
+import { data } from "../data/data";
 import { Section, Container, Wrap } from "../components/Features";
 import { init } from "@emailjs/browser";
 
@@ -203,7 +203,7 @@ const Contact = ({ reverse }) => {
               data-aos-anchor-placement="center bottom"
             >
               <MapContainer
-                center={addressData.loc}
+                center={data.addressData.loc}
                 zoom={16}
                 scrollWheelZoom={false}
                 style={{ height: "100%", width: "100%" }}
@@ -212,8 +212,8 @@ const Contact = ({ reverse }) => {
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <Marker position={addressData.loc}>
-                  <Popup>{addressData.title}</Popup>
+                <Marker position={data.addressData.loc}>
+                  <Popup>{data.addressData.title}</Popup>
                 </Marker>
               </MapContainer>
             </MapWrapper>

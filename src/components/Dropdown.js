@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { menuData } from "../data/MenuData";
+import { data } from "../data/data";
 import { COLORS } from "../style/variables";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
@@ -79,7 +79,7 @@ const Dropdown = ({ isOpen, toggle }) => {
       </Icon>
       <DropdownWrapper>
         <DropdownMenu>
-          {menuData.map((item, index) => (
+          {data.menuData.map((item, index) => (
             <DropdownLink key={index} to={item.link}>
               {item.title}
             </DropdownLink>

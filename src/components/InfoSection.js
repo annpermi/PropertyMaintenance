@@ -2,7 +2,7 @@ import React, { useRef, useContext } from "react";
 import DOMPurify from "dompurify";
 import styled from "styled-components";
 import { SubmitButton } from "./Button";
-import { addressData } from "../data/AddressData";
+import { data } from "../data/data";
 import { MyContext } from "../context";
 
 const Section = styled.div`
@@ -116,7 +116,7 @@ const InfoSection = (props) => {
           </ListWrapper>
           <SubmitButton
             primary="true"
-            onClick={() => window.open(`tel:${addressData.tel}`, "_self")}
+            onClick={() => window.open(`tel:${data.addressData.tel}`, "_self")}
           >
             {buttonLabel}
           </SubmitButton>
