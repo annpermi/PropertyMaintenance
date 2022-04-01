@@ -9,7 +9,6 @@ const buttonShearedStyle = css`
   min-width: 100px;
   max-width: 200px;
   cursor: pointer;
-  text-decoration: none;
   transition: 0.3s;
   display: flex;
   justify-content: center;
@@ -26,8 +25,14 @@ const buttonShearedStyle = css`
 
 export const Button = styled(Link)`
   ${buttonShearedStyle}
+  text-decoration: none;
 `;
 
 export const SubmitButton = styled.button`
   ${buttonShearedStyle}
+  margin-top: 10px;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 `;

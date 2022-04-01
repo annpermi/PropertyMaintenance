@@ -24,6 +24,9 @@ const NavLink = css`
   height: 100%;
   cursor: pointer;
   text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  /* text-shadow: 0px 0px 20px rgb(0 0 0 / 40%); */
   &:hover {
     border-bottom: 1px solid ${COLORS.white};
   }
@@ -123,7 +126,7 @@ const Navbar = ({ toggle }) => {
         ))}
       </NavMenu>
       <NavBtn>
-        <Button to="/contact" primary="true">
+        <Button to="/contact" primary={true}>
           Contact Us
         </Button>
       </NavBtn>

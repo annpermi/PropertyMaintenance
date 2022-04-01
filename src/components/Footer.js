@@ -3,10 +3,10 @@ import styled, { css } from "styled-components/macro";
 import { COLORS } from "../style/variables";
 import { data } from "../data/data";
 import {
-  FaInstagram,
+  // FaInstagram,
   FaFacebookF,
-  FaLinkedinIn,
-  FaYoutube,
+  // FaLinkedinIn,
+  // FaYoutube,
 } from "react-icons/fa";
 
 const Section = styled.section`

@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from "react";
+import React, { useContext } from "react";
 import DOMPurify from "dompurify";
 import styled from "styled-components";
 import { SubmitButton } from "./Button";
@@ -115,7 +115,7 @@ const InfoSection = (props) => {
             </ul>
           </ListWrapper>
           <SubmitButton
-            primary="true"
+            primary={true}
             onClick={() => window.open(`tel:${data.addressData.tel}`, "_self")}
           >
             {buttonLabel}

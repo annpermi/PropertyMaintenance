@@ -22,41 +22,7 @@ const HeroWrapper = styled.div`
   align-items: center;
   overflow: hidden;
   position: relative;
-`;
-
-const HeroSlide = styled.div`
-  /* z-index: 1; */
-  width: 100%;
-  height: 100%;
-`;
-
-const HeroSlider = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &::before {
-    content: "";
-    position: absolute;
-    /* z-index: 2; */
-    width: 100%;
-    height: 100vh;
-    bottom: 0vh;
-    left: 0;
-    overflow: hidden;
-    opacity: 0.4;
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.2) 50%,
-      rgba(0, 0, 0, 0.6) 100%
-    );
-  }
+  background: linear-gradient(0deg, #6d6158, #83a2b6, #c8d9e9);
 `;
 const HeroImage = styled(motion.img)`
   position: absolute;
@@ -67,8 +33,6 @@ const HeroImage = styled(motion.img)`
   object-fit: cover;
 `;
 const HeroContent = styled.div`
-  position: relative;
-  /* z-index: 10; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,11 +49,11 @@ const HeroContent = styled.div`
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
     margin-bottom: 0.8rem;
   }
-  p {
+  /* p {
     font-size: clamp(0.825rem, 8vw, 2rem);
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
     margin-bottom: 1.2rem;
-  }
+  } */
 `;
 const Arrow = styled(IoMdArrowRoundForward)`
   margin-left: 0.5rem;
@@ -108,48 +72,41 @@ const Hero = ({ image, alt, title, subTitle, path, label }) => {
     <HeroSection>
       <HeroWrapper>
         <AnimatePresence>
-          <HeroSlide>
-            <HeroSlider>
-              <HeroImage
-                src={image}
-                alt={alt}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                variants={fadeAnimation}
-              />
-              <HeroContent>
-                <h1
-                  style={{ fontWeight: 800 }}
-                  data-aos="fade-down"
-                  data-aos-duration="600"
-                >
-                  {title}
-                </h1>
-                <h1
-                  data-aos="fade-down"
-                  data-aos-duration="600"
-                  data-aos-delay="200"
-                >
-                  {subTitle}
-                </h1>
-                <SubmitButton
-                  data-aos="zoom-out"
-                  data-aos-duration="500"
-                  data-aos-delay="250"
-                  to={path}
-                  primary="true"
-                  css={`
-                    max-width: 160px;
-                  `}
-                  onClick={() => scrollDown(infoRef)}
-                >
-                  {label}
-                  <Arrow />
-                </SubmitButton>
-              </HeroContent>
-            </HeroSlider>
-          </HeroSlide>
+          <HeroImage
+            src={image}
+            alt={alt}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={fadeAnimation}
+          />
+          <HeroContent>
+            <h1
+              style={{ fontWeight: 800 }}
+              data-aos="fade-down"
+              data-aos-duration="600"
+            >
+              {title}
+            </h1>
+            <h1
+              data-aos="fade-down"
+              data-aos-duration="600"
+              data-aos-delay="200"
+            >
+              {subTitle}
+            </h1>
+            <SubmitButton
+              data-aos="zoom-out"
+              data-aos-duration="500"
+              data-aos-delay="250"
+              primary={true}
+              style={{ maxWidth: "160px", zIndex: "1" }}
+              onClick={() => scrollDown(infoRef)}
+            >
+              {label}
+              <Arrow />
+            </SubmitButton>
+          </HeroContent>
         </AnimatePresence>
       </HeroWrapper>
     </HeroSection>

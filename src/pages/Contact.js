@@ -185,7 +185,7 @@ const Contact = ({ reverse }) => {
                     />
                   </ListItem>
                   <ListItem>
-                    <SubmitButton type="submit" value="SEND" primary="true">
+                    <SubmitButton type="submit" value="SEND" primary={true}>
                       Send
                     </SubmitButton>
                   </ListItem>
