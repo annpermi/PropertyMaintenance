@@ -8,7 +8,7 @@ import Hero from "../images/hero.jpg";
 
 export const data = {
   addressData: {
-    loc: [41.2835, -70.0995],
+    loc: [41.272766, -70.10412],
     title: "AB Property Maintenance",
     logo: "Alan Burney",
     poBox: "P.O Box 59",
@@ -19,9 +19,10 @@ export const data = {
     emergencyHours: "24 hrs a day 7 days a week for emergency alarm call",
   },
   menuData: [
-    { title: "About", link: "/about" },
-    { title: "Services", link: "/services" },
-    { title: "Gallery", link: "/gallery" },
+    { title: "Home", link: "/", id: "1" },
+    { title: "About", link: "/about", id: "2" },
+    { title: "Services", link: "/services", id: "3" },
+    { title: "Gallery", link: "/gallery", id: "4" },
   ],
   hero: {
     title: "AB Property Maintenance",
@@ -37,19 +38,19 @@ export const data = {
       subTitle: "Nantucket Island",
       path: "#info",
       label: "View Services",
-      alt: "Place",
+      alt: "Place1",
     },
     {
       title: "Siasconset",
       path: "/places",
       label: "View Place",
-      alt: "Place",
+      alt: "Place2",
     },
     {
       title: "Madaket",
       path: "/places",
       label: "View Place",
-      alt: "Place",
+      alt: "Place3",
     },
   ],
   infoData: {

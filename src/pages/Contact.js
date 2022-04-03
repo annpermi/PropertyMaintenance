@@ -185,7 +185,7 @@ const Contact = ({ reverse }) => {
                     />
                   </ListItem>
                   <ListItem>
-                    <SubmitButton type="submit" value="SEND" primary={true}>
+                    <SubmitButton type="submit" value="SEND" primary="true">
                       Send
                     </SubmitButton>
                   </ListItem>
@@ -204,7 +204,7 @@ const Contact = ({ reverse }) => {
             >
               <MapContainer
                 center={data.addressData.loc}
-                zoom={16}
+                zoom={17}
                 scrollWheelZoom={false}
                 style={{ height: "100%", width: "100%" }}
               >

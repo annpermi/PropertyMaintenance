@@ -44,9 +44,10 @@ const FooterInfo = styled.div`
 `;
 
 const FooterLogo = styled.h1`
-  font-size: 3.125rem;
+  font-size: 3rem;
   padding: 1.25rem;
   text-align: center;
+  flex: 1;
 `;
 
 const FooterIcons = styled.div`
@@ -118,7 +119,7 @@ const Footer = () => {
               window.open(`mailto:${data.addressData.email}`, "_blank")
             }
           >
-            Email: <Span>{data.addressData.email}</Span>
+            Email: <br /> <Span>{data.addressData.email}</Span>
           </p>
         </FooterInfo>
         <FooterLogo>{data.addressData.title}</FooterLogo>

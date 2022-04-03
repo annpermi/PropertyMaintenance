@@ -109,13 +109,13 @@ const InfoSection = (props) => {
           {paragraphTwo}
           <ListWrapper>
             <ul style={{ listStyleType: "circle" }}>
-              {paragraphTwoBullets.map((item, i) => (
-                <li key={i}>{item}</li>
+              {paragraphTwoBullets.map((item) => (
+                <li key={`${item}-key`}>{item}</li>
               ))}
             </ul>
           </ListWrapper>
           <SubmitButton
-            primary={true}
+            primary="true"
             onClick={() => window.open(`tel:${data.addressData.tel}`, "_self")}
           >
             {buttonLabel}

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import styled from "styled-components/macro";
-import { SubmitButton } from "./Button";
-import { IoMdArrowRoundForward } from "react-icons/io";
+// import { SubmitButton } from "./Button";
+// import { IoMdArrowRoundForward } from "react-icons/io";
 import { COLORS } from "../style/variables";
-import { scrollDown } from "../pages/Home";
+// import { scrollDown } from "../pages/Home";
 import { MyContext } from "../context";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -55,9 +55,9 @@ const HeroContent = styled.div`
     margin-bottom: 1.2rem;
   } */
 `;
-const Arrow = styled(IoMdArrowRoundForward)`
-  margin-left: 0.5rem;
-`;
+// const Arrow = styled(IoMdArrowRoundForward)`
+//   margin-left: 0.5rem;
+// `;
 
 const Hero = ({ image, alt, title, subTitle, path, label }) => {
   const { infoRef } = useContext(MyContext);
@@ -73,6 +73,7 @@ const Hero = ({ image, alt, title, subTitle, path, label }) => {
       <HeroWrapper>
         <AnimatePresence>
           <HeroImage
+            key={alt}
             src={image}
             alt={alt}
             initial="hidden"
@@ -95,17 +96,17 @@ const Hero = ({ image, alt, title, subTitle, path, label }) => {
             >
               {subTitle}
             </h1>
-            <SubmitButton
+            {/* <SubmitButton
               data-aos="zoom-out"
               data-aos-duration="500"
               data-aos-delay="250"
-              primary={true}
+              primary='true'
               style={{ maxWidth: "160px", zIndex: "1" }}
               onClick={() => scrollDown(infoRef)}
             >
               {label}
               <Arrow />
-            </SubmitButton>
+            </SubmitButton> */}
           </HeroContent>
         </AnimatePresence>
       </HeroWrapper>

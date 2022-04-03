@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components/macro";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, NavLink } from "react-router-dom";
 import { data } from "../data/data";
 import { Button } from "./Button";
 import { COLORS } from "../style/variables";
@@ -16,11 +16,12 @@ const Nav = styled.nav`
   width: 100%;
 `;
 
-const NavLink = css`
+const LinkStyled = css`
   color: ${COLORS.white};
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
+  margin: 0 0.5rem;
   height: 100%;
   cursor: pointer;
   text-decoration: none;
@@ -30,10 +31,13 @@ const NavLink = css`
   &:hover {
     border-bottom: 1px solid ${COLORS.white};
   }
+  &.active {
+    border-bottom: 1px solid ${COLORS.white};
+  }
 `;
 
 const Logo = styled(Link)`
-  ${NavLink}
+  ${LinkStyled}
   font-style: italic;
   font-size: 1.25rem;
   &:hover {
@@ -69,8 +73,8 @@ const NavMenu = styled.div`
   }
 `;
 
-const NavMenuLinks = styled(Link)`
-  ${NavLink}
+const NavMenuLinks = styled(NavLink)`
+  ${LinkStyled}
 `;
 
 const NavBtn = styled.div`
@@ -85,6 +89,7 @@ const NavBtn = styled.div`
 
 const Navbar = ({ toggle }) => {
   const [navbar, setNavbar] = useState(false);
+  // const [isActive, setIsActive] = useState(true);
   const location = useLocation();
 
   const changeBackground = () => {
@@ -119,14 +124,14 @@ const Navbar = ({ toggle }) => {
       <Logo to="/">AlanBurney</Logo>
       <MenuBars onClick={toggle} />
       <NavMenu>
-        {data.menuData.map((item, index) => (
-          <NavMenuLinks to={item.link} key={index}>
+        {data.menuData.map((item) => (
+          <NavMenuLinks to={item.link} key={item.id}>
             {item.title}
           </NavMenuLinks>
         ))}
       </NavMenu>
       <NavBtn>
-        <Button to="/contact" primary={true}>
+        <Button to="/contact" primary="true">
           Contact Us
         </Button>
       </NavBtn>
