@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Listings from "../components/Listings";
 import { data } from "../data/data";
 import InfoSection from "../components/InfoSection";
+import Testimonials from "../components/Testimonials";
 
 export const scrollDown = (ref) => {
   if (ref && ref.current) {
@@ -22,6 +23,7 @@ const Home = () => {
       <InfoSection {...data.infoData} />
       <Listings {...data.infoDataTwo} />
       <Features {...data.infoDataThree} />
+      <Testimonials />
     </>
   );
 };

@@ -5,6 +5,7 @@ import { data } from "../data/data";
 import { Button } from "./Button";
 import { COLORS } from "../style/variables";
 import Bars from "../images/bars.svg";
+import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 const Nav = styled.nav`
   height: 60px;
@@ -21,18 +22,16 @@ const LinkStyled = css`
   display: flex;
   align-items: center;
   padding: 0 0.5rem;
-  margin: 0 0.5rem;
-  height: 100%;
+  height: 35px;
   cursor: pointer;
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 1px;
-  /* text-shadow: 0px 0px 20px rgb(0 0 0 / 40%); */
   &:hover {
-    border-bottom: 1px solid ${COLORS.white};
+    border-bottom: 2px solid ${COLORS.white};
   }
   &.active {
-    border-bottom: 1px solid ${COLORS.white};
+    border-bottom: 2px solid ${COLORS.white};
   }
 `;
 
@@ -75,6 +74,7 @@ const NavMenu = styled.div`
 
 const NavMenuLinks = styled(NavLink)`
   ${LinkStyled}
+  margin: 1rem 0.5rem;
 `;
 
 const NavBtn = styled.div`
@@ -87,9 +87,32 @@ const NavBtn = styled.div`
   }
 `;
 
-const Navbar = ({ toggle }) => {
+const DropdownContent = styled.div`
+  position: absolute;
+  background-color: ${COLORS.blue[700]};
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 12%);
+  z-index: 2;
+  padding: 10px;
+`;
+
+export const DropdownContainer = styled.div`
+  overflow: hidden;
+`;
+
+const DropdownLink = styled(Link)`
+  ${LinkStyled}
+  padding: 0.5rem;
+`;
+
+export const DropDownIconWrapper = styled.span`
+  padding-left: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+`;
+
+const Navbar = ({ toggle, dropdown, setDropdown }) => {
   const [navbar, setNavbar] = useState(false);
-  // const [isActive, setIsActive] = useState(true);
   const location = useLocation();
 
   const changeBackground = () => {
@@ -115,7 +138,9 @@ const Navbar = ({ toggle }) => {
 
   let style = {
     backgroundColor:
-      navbar || location.pathname !== "/" ? `${COLORS.navy}` : "transparent",
+      navbar || location.pathname !== "/"
+        ? `${COLORS.blue[400]}`
+        : "transparent",
     transition: "0.4s",
   };
 
@@ -124,11 +149,47 @@ const Navbar = ({ toggle }) => {
       <Logo to="/">AlanBurney</Logo>
       <MenuBars onClick={toggle} />
       <NavMenu>
-        {data.menuData.map((item) => (
-          <NavMenuLinks to={item.link} key={item.id}>
-            {item.title}
-          </NavMenuLinks>
-        ))}
+        {data.menuData.map((item) => {
+          if (item.title === "Services") {
+            return (
+              <DropdownContainer
+                onMouseEnter={() => setDropdown(true)}
+                onMouseLeave={() => setDropdown(false)}
+              >
+                <NavMenuLinks
+                  to={item.link}
+                  key={item.id}
+                  css={`
+                    margin: 12px 8px;
+                  `}
+                >
+                  {item.title}
+                  <DropDownIconWrapper>
+                    {dropdown ? <AiFillCaretUp /> : <AiFillCaretDown />}
+                  </DropDownIconWrapper>
+                </NavMenuLinks>
+                {dropdown && (
+                  <DropdownContent>
+                    {data.services.map((service) => (
+                      <DropdownLink
+                        key={`${service.id}-service`}
+                        to={service.link}
+                      >
+                        {service.title}
+                      </DropdownLink>
+                    ))}
+                  </DropdownContent>
+                )}
+              </DropdownContainer>
+            );
+          } else {
+            return (
+              <NavMenuLinks to={item.link} key={item.id}>
+                {item.title}
+              </NavMenuLinks>
+            );
+          }
+        })}
       </NavMenu>
       <NavBtn>
         <Button to="/contact" primary="true">

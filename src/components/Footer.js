@@ -69,7 +69,7 @@ const SocialIcons = styled.div`
 const Icons = css`
   font-size: clamp(1rem, 6vw, 2rem);
   margin-right: 1.5rem;
-  color: ${COLORS.navy};
+  color: ${COLORS.blue[400]};
 `;
 
 // const Instagram = styled(FaInstagram)`
@@ -98,7 +98,7 @@ const Policy = styled.p`
 const Span = styled.span`
   cursor: pointer;
   &:hover {
-    color: ${COLORS.navy};
+    color: ${COLORS.blue[400]};
   }
 `;
 

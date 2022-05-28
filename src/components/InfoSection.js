@@ -99,27 +99,35 @@ const InfoSection = (props) => {
           data-aos-anchor-placement="center bottom"
         >
           <h1>{heading}</h1>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(paragraphOne, {
-                USE_PROFILES: { html: true },
-              }),
-            }}
-          />
-          {paragraphTwo}
-          <ListWrapper>
-            <ul style={{ listStyleType: "circle" }}>
-              {paragraphTwoBullets.map((item) => (
-                <li key={`${item}-key`}>{item}</li>
-              ))}
-            </ul>
-          </ListWrapper>
-          <SubmitButton
-            primary="true"
-            onClick={() => window.open(`tel:${data.addressData.tel}`, "_self")}
-          >
-            {buttonLabel}
-          </SubmitButton>
+          {paragraphOne && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(paragraphOne, {
+                  USE_PROFILES: { html: true },
+                }),
+              }}
+            />
+          )}
+          {paragraphTwo && <p>{paragraphTwo}</p>}
+          {paragraphTwoBullets && (
+            <ListWrapper>
+              <ul style={{ listStyleType: "circle" }}>
+                {paragraphTwoBullets.map((item) => (
+                  <li key={`${item}-key`}>{item}</li>
+                ))}
+              </ul>
+            </ListWrapper>
+          )}
+          {buttonLabel && (
+            <SubmitButton
+              primary="true"
+              onClick={() =>
+                window.open(`tel:${data.addressData.tel}`, "_self")
+              }
+            >
+              {buttonLabel}
+            </SubmitButton>
+          )}
         </ColumnLeft>
         <ColumnRight reverse={reverse}>
           <img

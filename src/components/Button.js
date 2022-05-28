@@ -1,10 +1,11 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import { COLORS } from "../style/variables";
+
 const buttonShearedStyle = css`
-  background: ${({ primary }) => (primary ? COLORS.grey : COLORS.navy)};
+  background: ${({ primary }) => (!primary ? COLORS.grey : COLORS.blue[500])};
   white-space: nowrap;
-  outline: none;
+  outline: 1px solid #2b4e73;
   border: none;
   min-width: 100px;
   max-width: 200px;

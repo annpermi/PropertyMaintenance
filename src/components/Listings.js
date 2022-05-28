@@ -52,6 +52,15 @@ const InfoWrap = styled.div`
     min-height: 338px;
   }
 `;
+const ImageWrapper = styled.div`
+  width: 600px;
+  @media screen and (max-width: 1300px) {
+    width: auto;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
 
 const Image = styled.img`
   width: 100%;
@@ -116,9 +125,11 @@ const Listings = (props) => {
             data-aos-once="false"
             data-aos-anchor-placement="center bottom"
           >
-            <Image src={image_one} alt="home" />
+            <ImageWrapper>
+              <Image src={image_one} alt="home" />
+            </ImageWrapper>
             <h2>{subtitleOne}</h2>
-            <InfoLink to="/gallery">
+            <InfoLink to="/caretaking">
               <p>{paragraphOne}</p>
               <Arrow />
             </InfoLink>
@@ -129,18 +140,20 @@ const Listings = (props) => {
             data-aos-once="true"
             data-aos-anchor-placement="center bottom"
           >
-            <Image
-              src={image_two}
-              alt="home"
-              css={`
-                margin-top: 100px;
-                @media screen and (max-width: 768px) {
-                  margin-top: 0px;
-                }
-              `}
-            />
+            <ImageWrapper>
+              <Image
+                src={image_two}
+                alt="home"
+                css={`
+                  margin-top: 100px;
+                  @media screen and (max-width: 768px) {
+                    margin-top: 0px;
+                  }
+                `}
+              />
+            </ImageWrapper>
             <h2>{subtitleTwo}</h2>
-            <InfoLink to="/gallery">
+            <InfoLink to="/painting">
               <p>{paragraphTwo}</p>
               <Arrow />
             </InfoLink>
@@ -153,9 +166,11 @@ const Listings = (props) => {
             data-aos-once="false"
             data-aos-anchor-placement="center bottom"
           >
-            <Image src={image_three} alt="home" />
+            <ImageWrapper>
+              <Image src={image_three} alt="home" />
+            </ImageWrapper>
             <h2>{subtitleThree}</h2>
-            <InfoLink to="/gallery">
+            <InfoLink to="/pool-service">
               <p>{paragraphThree}</p>
               <Arrow />
             </InfoLink>
@@ -166,18 +181,20 @@ const Listings = (props) => {
             data-aos-once="true"
             data-aos-anchor-placement="center bottom"
           >
-            <Image
-              src={image_four}
-              alt="home"
-              css={`
-                margin-top: 100px;
-                @media screen and (max-width: 768px) {
-                  margin-top: 0px;
-                }
-              `}
-            />
+            <ImageWrapper>
+              <Image
+                src={image_four}
+                alt="home"
+                css={`
+                  margin-top: 100px;
+                  @media screen and (max-width: 768px) {
+                    margin-top: 0px;
+                  }
+                `}
+              />
+            </ImageWrapper>
             <h2>{subtitleFour}</h2>
-            <InfoLink to="/gallery">
+            <InfoLink to="/services">
               <p>{paragraphFour}</p>
               <Arrow />
             </InfoLink>
